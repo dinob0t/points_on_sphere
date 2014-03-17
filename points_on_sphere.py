@@ -1,6 +1,12 @@
 """
-To generate randomly spaced points on a sphere
+To generate 'num' points on a sphere of radius 'r'
+- Random placement involves randomly chosen points for 'z' and 'phi'
+- Regular placement involves chosing points such that there one point per d_area
+
+References:
+Deserno, 2004, How to generate equidistributed points on the surface of a sphere
 """
+
 import random
 import math
 
@@ -13,6 +19,13 @@ def random_sphere_points(r,num):
 		y = math.sqrt(r**2 - z**2)*math.sin(phi)
 		points.append([x,y,z])
 	return points
+
+def regular_sphere_points(r,num):
+#
+#
+#
+#
+
 
 points = random_sphere_points(1,1)
 print points
