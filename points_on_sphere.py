@@ -14,6 +14,8 @@ def random_sphere_points(r,num):
 		points.append([x,y,z])
 	return points
 
-print random_sphere_points(1,4)
+points = random_sphere_points(1,1)
+print points
+#print math.sqrt(blah[0][0]**2 + blah[0][1]**2 + blah[0][2]**2)
 
 	
