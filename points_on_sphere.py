@@ -20,7 +20,7 @@ def random_sphere_points(r,num):
 		points.append([x,y,z])
 	return points
 
-def regular_sphere_points(r,num):
+#def regular_sphere_points(r,num):
 #
 #
 #
