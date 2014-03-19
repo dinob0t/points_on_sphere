@@ -20,15 +20,38 @@ def random_sphere_points(r,num):
 		points.append([x,y,z])
 	return points
 
-#def regular_sphere_points(r,num):
-#
-#
-#
-#
+def regular_sphere_points(r,num):
+	points = []
+	a = 4.0 * math.pi*(r**2.0 / num)
+	d = math.sqrt(a)
+	m_theta = int(round(math.pi / d))
+	d_theta = math.pi / m_theta
+	d_phi = a / d_theta
 
 
-points = random_sphere_points(1,1)
+	for m in range(0,m_theta):
+		theta = math.pi * (m + 0.5) / m_theta
+		m_phi = int(round(2.0 * math.pi * math.sin(theta) / d_phi))
+		for n in range(0,m_phi):
+			phi = 2.0 * math.pi * n / m_phi
+			x = r * math.sin(theta) * math.cos(phi)
+			y = r * math.sin(theta) * math.sin(phi)
+			z = r * math.cos(theta)
+			points.append([x,y,z])
+	return points
+
+
+
+
+
+
+
+
+points = random_sphere_points(1,2)
 print points
 #print math.sqrt(blah[0][0]**2 + blah[0][1]**2 + blah[0][2]**2)
+
+points = regular_sphere_points(1,1)
+print points
 
 	
