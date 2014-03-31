@@ -23,6 +23,10 @@ def random_sphere_points(r,num):
 
 def regular_sphere_points(r,num):
 	points = []
+	#Break out if zero points
+	if num==0:
+		return points
+
 	a = 4.0 * math.pi*(r**2.0 / num)
 	d = math.sqrt(a)
 	m_theta = int(math.ceil(math.pi / d))
@@ -40,11 +44,8 @@ def regular_sphere_points(r,num):
 			points.append([x,y,z])
 	return points
 
-random_surf_points = random_sphere_points(1,2)
+random_surf_points = random_sphere_points(1,0)
 print random_surf_points
 
-regular_surf_points = regular_sphere_points(1,3)
+regular_surf_points = regular_sphere_points(1,0)
 print regular_surf_points
-
-
-	
