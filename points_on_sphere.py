@@ -5,6 +5,7 @@ To generate 'num' points on a sphere of radius 'r'
 
 References:
 Deserno, 2004, How to generate equidistributed points on the surface of a sphere
+http://www.cmu.edu/biolphys/deserno/pdf/sphere_equi.pdf
 """
 
 import random
@@ -24,14 +25,13 @@ def regular_sphere_points(r,num):
 	points = []
 	a = 4.0 * math.pi*(r**2.0 / num)
 	d = math.sqrt(a)
-	m_theta = int(round(math.pi / d))
+	m_theta = int(math.ceil(math.pi / d))
 	d_theta = math.pi / m_theta
 	d_phi = a / d_theta
 
-
 	for m in range(0,m_theta):
 		theta = math.pi * (m + 0.5) / m_theta
-		m_phi = int(round(2.0 * math.pi * math.sin(theta) / d_phi))
+		m_phi = int(math.ceil(2.0 * math.pi * math.sin(theta) / d_phi))
 		for n in range(0,m_phi):
 			phi = 2.0 * math.pi * n / m_phi
 			x = r * math.sin(theta) * math.cos(phi)
@@ -40,18 +40,11 @@ def regular_sphere_points(r,num):
 			points.append([x,y,z])
 	return points
 
+random_surf_points = random_sphere_points(1,2)
+print random_surf_points
 
+regular_surf_points = regular_sphere_points(1,3)
+print regular_surf_points
 
-
-
-
-
-
-points = random_sphere_points(1,2)
-print points
-#print math.sqrt(blah[0][0]**2 + blah[0][1]**2 + blah[0][2]**2)
-
-points = regular_sphere_points(1,1)
-print points
 
 	
