@@ -10,6 +10,7 @@ http://www.cmu.edu/biolphys/deserno/pdf/sphere_equi.pdf
 
 import random
 import math
+from pprint import pprint
 
 def random_sphere_points(r,num):
 	points = []
@@ -29,13 +30,13 @@ def regular_sphere_points(r,num):
 
 	a = 4.0 * math.pi*(r**2.0 / num)
 	d = math.sqrt(a)
-	m_theta = int(math.ceil(math.pi / d))
+	m_theta = int(round(math.pi / d))
 	d_theta = math.pi / m_theta
 	d_phi = a / d_theta
 
 	for m in range(0,m_theta):
 		theta = math.pi * (m + 0.5) / m_theta
-		m_phi = int(math.ceil(2.0 * math.pi * math.sin(theta) / d_phi))
+		m_phi = int(round(2.0 * math.pi * math.sin(theta) / d_phi))
 		for n in range(0,m_phi):
 			phi = 2.0 * math.pi * n / m_phi
 			x = r * math.sin(theta) * math.cos(phi)
@@ -44,8 +45,16 @@ def regular_sphere_points(r,num):
 			points.append([x,y,z])
 	return points
 
-random_surf_points = random_sphere_points(1,0)
-print random_surf_points
 
-regular_surf_points = regular_sphere_points(1,0)
-print regular_surf_points
+radius = 1
+points = 6
+
+print "Randomly distributed points"
+random_surf_points = random_sphere_points(radius,points)
+pprint(random_surf_points)
+print " "
+
+print "Evenly distributed points"
+regular_surf_points = regular_sphere_points(radius,points)
+pprint(regular_surf_points)
+print " "
