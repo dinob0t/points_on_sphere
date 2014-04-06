@@ -1,5 +1,5 @@
 """
-To generate 'num' points on a sphere of radius 'r'
+To generate 'num' points on a sphere of radius 'r' centred on the origin
 - Random placement involves randomly chosen points for 'z' and 'phi'
 - Regular placement involves chosing points such that there one point per d_area
 
@@ -12,7 +12,7 @@ import random
 import math
 from pprint import pprint
 
-def random_sphere_points(r,num):
+def random_on_sphere_points(r,num):
 	points = []
 	for i in range(0,num):
 		z =  random.uniform(-r,r) 
@@ -22,7 +22,7 @@ def random_sphere_points(r,num):
 		points.append([x,y,z])
 	return points
 
-def regular_sphere_points(r,num):
+def regular_on_sphere_points(r,num):
 	points = []
 	#Break out if zero points
 	if num==0:
@@ -50,11 +50,11 @@ radius = 1
 points = 6
 
 print "Randomly distributed points"
-random_surf_points = random_sphere_points(radius,points)
+random_surf_points = random_on_sphere_points(radius,points)
 pprint(random_surf_points)
 print " "
 
 print "Evenly distributed points"
-regular_surf_points = regular_sphere_points(radius,points)
+regular_surf_points = regular_on_sphere_points(radius,points)
 pprint(regular_surf_points)
 print " "
